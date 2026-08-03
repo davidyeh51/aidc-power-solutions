@@ -1,6 +1,6 @@
 # AI 算力中心｜電力即算力：三大解決方案
 
-AIDC（AI Data Center）與自備電源（IPP）交會處的三條解決路徑，單一 HTML 檔案簡報，無外部相依。
+AIDC（AI Data Center）與自備電源（IPP）交會處的三條解決路徑，以及一個落地合作案例。單一 HTML 檔案簡報，無外部相依。
 
 **線上版：** https://davidyeh51.github.io/aidc-power-solutions/
 
@@ -12,6 +12,7 @@ AIDC（AI Data Center）與自備電源（IPP）交會處的三條解決路徑�
 | 2 | 促參法 BOO — 商業架構與租稅優惠（含 07/31 PwC 簡報全數重繪） | 10 |
 | 3 | 燃氣發電機 — Siemens Energy SGT-A05 | 6 |
 | 4 | 貨櫃型算力伺服器 — Intel × Fourier 模組化資料中心 | 6 |
+| 5 | 富邦能源合作 — 龜山 AIDC 案例研判與共同開發提案 | 6 |
 
 ## 操作
 
@@ -19,8 +20,10 @@ AIDC（AI Data Center）與自備電源（IPP）交會處的三條解決路徑�
 
 ## 基準資料
 
-2026/07/31「電力即算力 AI 快速佈署建置技術會議」PwC、Intel、Siemens Energy 三段簡報，
+Part 1–4：2026/07/31「電力即算力 AI 快速佈署建置技術會議」PwC、Intel、Siemens Energy 三段簡報，
 另補充查證促參法全文、數發部政策公告核定本、原廠型錄與公開產業報導。
+
+Part 5：台灣大哥大 2026/07/31 公告（龜山 TAIDC 租金 89.83 億元）與富邦能源公開登記資料、媒體報導。
 
 資訊真偽分級標記於各頁：【已查證】【會中所述】【我方推論】【需查證】。
 

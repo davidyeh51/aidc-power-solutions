@@ -41,7 +41,8 @@ body{
 .topnav a:hover{color:var(--blue); background:var(--blue-soft)}
 .topnav a.active{color:#fff; background:var(--blue); font-weight:700}
 .topbar .meta{font-size:.74rem; color:var(--muted); white-space:nowrap}
-@media(max-width:860px){.topbar .meta{display:none} .topbar .brand .tx{font-size:.78rem}}
+@media(max-width:1120px){.topbar .meta{display:none}}
+@media(max-width:860px){.topbar .brand .tx{font-size:.78rem}}
 
 /* ---------- views / slides ---------- */
 .view{display:none}
@@ -170,9 +171,9 @@ svg text{font-family:inherit}
   transition:transform .15s ease, box-shadow .15s ease; position:relative; overflow:hidden;
 }
 .part-card:hover{transform:translateY(-4px); box-shadow:0 12px 28px rgba(18,41,61,.13)}
-.part-card.c2{border-top-color:var(--teal)} .part-card.c3{border-top-color:var(--amber)} .part-card.c4{border-top-color:var(--coral)}
+.part-card.c2{border-top-color:var(--teal)} .part-card.c3{border-top-color:var(--amber)} .part-card.c4{border-top-color:var(--coral)} .part-card.c5{border-top-color:var(--blue-dd)}
 .part-card .pc-eyebrow{font-size:.72rem; font-weight:800; letter-spacing:.15em; color:var(--blue)}
-.part-card.c2 .pc-eyebrow{color:var(--teal-d)} .part-card.c3 .pc-eyebrow{color:#9a6a10} .part-card.c4 .pc-eyebrow{color:#b4432c}
+.part-card.c2 .pc-eyebrow{color:var(--teal-d)} .part-card.c3 .pc-eyebrow{color:#9a6a10} .part-card.c4 .pc-eyebrow{color:#b4432c} .part-card.c5 .pc-eyebrow{color:var(--blue-dd)}
 .part-card h2{font-size:1.2rem; font-weight:800; margin:8px 0 6px; line-height:1.36}
 .part-card p{color:var(--muted); font-size:.87rem; line-height:1.6}
 .part-card .pc-flags{margin-top:12px; display:flex; gap:6px; flex-wrap:wrap}
@@ -227,6 +228,7 @@ svg text{font-family:inherit}
     <a href="#p2" data-nav="p2">2 促參法 BOO</a>
     <a href="#p3" data-nav="p3">3 燃氣發電機</a>
     <a href="#p4" data-nav="p4">4 貨櫃型算力伺服器</a>
+    <a href="#p5" data-nav="p5">5 富邦能源合作</a>
   </nav>
   <div class="meta">基準：2026/07/31 研討會</div>
 </div>
@@ -263,10 +265,10 @@ svg text{font-family:inherit}
       <p class="lede">
         GPU 機櫃 12 週到貨、貨櫃機房 6 個月上線，變壓器卻要 2.5 年。
         本簡報彙整 AI 算力中心的三條解決路徑——促參法 BOO 的錢與法、燃氣發電機的橋接電力、貨櫃型算力伺服器的快速佈署——
-        並標出每一條路徑上，進金生能源服務可以站的位置。
+        並以富邦能源合作案作為落地示範，標出每一條路徑上，進金生能源服務可以站的位置。
       </p>
       <div class="herometa">
-        <span>基準資料：2026/07/31「電力即算力」研討會</span>
+        <span>基準資料：2026/07/31「電力即算力」研討會 ＋ 龜山 AIDC 公開資訊</span>
         <span>PwC ｜ Intel ｜ Siemens Energy</span>
         <span>建立日期：2026/08</span>
         <span>呈閱：董事長、總經理</span>
@@ -306,6 +308,14 @@ svg text{font-family:inherit}
         <h2>貨櫃型算力伺服器</h2>
         <p>Intel 只定義 IT 櫃，貨櫃是 Fourier 的。零用水在台灣不成立，缺口在電力側。</p>
         <div class="pc-flags"><span class="chip coral">6 頁</span><span class="chip grey">Intel × Fourier</span></div>
+        <div class="pc-go">進入 →</div>
+      </a>
+      <a class="part-card c5" href="#p5-1">
+        <svg class="pc-icon" width="30" height="30" viewBox="0 0 30 30"><circle cx="9" cy="9" r="6.5" fill="#0C3A63" opacity=".28"/><circle cx="21" cy="21" r="6.5" fill="#0C3A63" opacity=".5"/><path d="M13 12 L17 18" stroke="#0C3A63" stroke-width="2.4"/><circle cx="21" cy="9" r="3" fill="#0C3A63"/></svg>
+        <div class="pc-eyebrow">PART 5</div>
+        <h2>富邦能源合作</h2>
+        <p>龜山 AIDC 案例研判與共同開發提案。同一個人兩手都有，缺的是把地、電、算力接起來的人。</p>
+        <div class="pc-flags"><span class="chip blue">6 頁</span><span class="chip amber">定價錨點</span><span class="chip coral">談判準備</span></div>
         <div class="pc-go">進入 →</div>
       </a>
     </div>
@@ -350,6 +360,15 @@ svg text{font-family:inherit}
         <a href="#p4-4"><span class="no">4.4</span>零用水在台灣半年不成立</a>
         <a href="#p4-5"><span class="no">4.5</span>為什麼不是台達電？</a>
         <a href="#p4-6"><span class="no">4.6</span>價值鏈缺口與三個切入點</a>
+      </div>
+      <div class="card">
+        <h3>PART 5 · 富邦能源合作</h3>
+        <a href="#p5-1"><span class="no">5.1</span>Power Couple 在富邦內部已是既成事實</a>
+        <a href="#p5-2"><span class="no">5.2</span>每 kW-IT 月租金 4,560 元的定價錨點</a>
+        <a href="#p5-3"><span class="no">5.3</span>光儲餵不飽 24/7 的資料中心</a>
+        <a href="#p5-4"><span class="no">5.4</span>泓德已經在裡面，界線要先畫清楚</a>
+        <a href="#p5-5"><span class="no">5.5</span>以 A 切入、以 B 為目標、C 點到為止</a>
+        <a href="#p5-6"><span class="no">5.6</span>下一座是租還是建？</a>
       </div>
     </div>
 
@@ -1957,6 +1976,419 @@ svg text{font-family:inherit}
 
 </div>
 
+
+<!-- ================= PART 5 : 富邦能源合作 ================= -->
+<div class="view" id="view-p5">
+
+<!-- 5.1 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 5 · 富邦能源合作</div>
+      <h1>Power Couple 在富邦集團內部已經是既成事實，只是還沒被組裝起來</h1>
+      <p class="sub">林之晨同時是台灣大哥大的經營者（龜山 AIDC 的主人）與富邦能源的董事長（綠電與儲能的主人）。我方不必推銷這個想法，只需要指出它目前缺哪一塊。</p>
+    </div>
+    <div class="flags"><span class="flag blue">已查證</span><span class="flag grey">談判準備材料</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="split-60">
+      <div class="fig">
+        <div class="figtitle">富邦集團的 AIDC × 綠電關係結構</div>
+        <svg viewBox="0 0 900 330" role="img" aria-label="富邦集團關係結構圖">
+          <defs><marker id="ar9" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#9FB1C0"/></marker></defs>
+          <rect x="330" y="10" width="240" height="46" fill="#0C3A63"/>
+          <text x="450" y="32" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">林之晨</text>
+          <text x="450" y="49" font-size="11.5" fill="#9FC6E4" text-anchor="middle">一人兼兩邊，決策鏈極短</text>
+          <path d="M400 56 L250 96" stroke="#1968AD" stroke-width="3" marker-end="url(#ar9)"/>
+          <path d="M500 56 L650 96" stroke="#1BB1BF" stroke-width="3" marker-end="url(#ar9)"/>
+          <text x="286" y="80" font-size="12" font-weight="700" fill="#1968AD">經營層</text>
+          <text x="566" y="80" font-size="12" font-weight="700" fill="#12818C">董事長</text>
+
+          <rect x="70" y="100" width="300" height="56" fill="#E8F1F9" stroke="#1968AD" stroke-width="2"/>
+          <text x="220" y="126" font-size="16" font-weight="800" fill="#12293D" text-anchor="middle">台灣大哥大（3045）</text>
+          <text x="220" y="145" font-size="11.5" fill="#5B7285" text-anchor="middle">算力需求端｜AIDC 業主</text>
+
+          <rect x="530" y="100" width="300" height="56" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="2"/>
+          <text x="680" y="126" font-size="16" font-weight="800" fill="#12293D" text-anchor="middle">富邦能源</text>
+          <text x="680" y="145" font-size="11.5" fill="#5B7285" text-anchor="middle">綠電供給端｜總投資 110 億元</text>
+
+          <path d="M220 156 V186" stroke="#9FB1C0" stroke-width="2.5" marker-end="url(#ar9)"/>
+          <path d="M680 156 V186" stroke="#9FB1C0" stroke-width="2.5" marker-end="url(#ar9)"/>
+
+          <rect x="40" y="190" width="170" height="52" fill="#fff" stroke="#C6D2DC"/>
+          <text x="125" y="212" font-size="13.5" font-weight="700" fill="#12293D" text-anchor="middle">龜山 TAIDC</text>
+          <text x="125" y="231" font-size="11.5" fill="#B4432C" text-anchor="middle">向 Vantage 承租，非自建</text>
+
+          <rect x="222" y="190" width="148" height="52" fill="#fff" stroke="#C6D2DC"/>
+          <text x="296" y="212" font-size="13.5" font-weight="700" fill="#12293D" text-anchor="middle">GMI Cloud</text>
+          <text x="296" y="231" font-size="11.5" fill="#5B7285" text-anchor="middle">算力夥伴｜GB300</text>
+
+          <rect x="530" y="190" width="145" height="52" fill="#fff" stroke="#C6D2DC"/>
+          <text x="602" y="212" font-size="13.5" font-weight="700" fill="#12293D" text-anchor="middle">光電 380 MW</text>
+          <text x="602" y="231" font-size="11.5" fill="#5B7285" text-anchor="middle">五年內自建（規劃）</text>
+
+          <rect x="687" y="190" width="143" height="52" fill="#fff" stroke="#C6D2DC"/>
+          <text x="758" y="212" font-size="13.5" font-weight="700" fill="#12293D" text-anchor="middle">儲能 354 MW</text>
+          <text x="758" y="231" font-size="11.5" fill="#5B7285" text-anchor="middle">開發中</text>
+
+          <rect x="530" y="256" width="300" height="26" fill="#EDF1F5"/>
+          <text x="680" y="274" font-size="11.5" font-weight="700" fill="#5B7285" text-anchor="middle">股權：富邦人壽 &gt;70%｜台灣大 ~10%｜泓德能源 ~10%</text>
+
+          <rect x="40" y="296" width="820" height="30" fill="#FCF2DE" stroke="#E09A2B" stroke-width="2"/>
+          <text x="450" y="316" font-size="14" font-weight="800" fill="#C57F14" text-anchor="middle">缺的那一塊：把地、電、算力接起來的人</text>
+        </svg>
+      </div>
+      <div class="table-wrap">
+        <table style="min-width:auto">
+          <thead><tr><th>富邦能源手上有</th><th>富邦能源手上沒有</th></tr></thead>
+          <tbody>
+            <tr><td>光電 380MW（規劃）、儲能 354MW（規劃）</td><td><b>24/7 可調度的基載電源</b></td></tr>
+            <tr><td>泓德能源的光儲技術與電力交易能力</td><td><b>AIDC 場域的土建、機電、受電、併聯、消防</b></td></tr>
+            <tr><td>富邦人壽的資金（持股 &gt;70%）</td><td><b>自建場域的工程執行能力</b></td></tr>
+            <tr><td>台灣大的算力需求與客戶</td><td><b>自有土地上的整合開發經驗</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="big-callout">
+      <div class="label">我方的一句話定位</div>
+      <div class="answer">「富邦有地、有錢、有電、有客戶，也有算力夥伴。下一座你們自己蓋的時候，缺的是把這些接起來的人。」</div>
+    </div>
+    <div class="note-src">【需查證】林之晨於台灣大之職稱，2026 年部分報導稱「董事長」、部分稱「總經理」，會談前應確認以免失禮。</div>
+  </div>
+  <div class="slide-foot"><div>來源：聯合報、CTWANT、台灣公司網富邦能源登記資料；台灣大哥大 2026/07/31 公告</div><div class="pageno">5.1</div></div>
+</section>
+
+<!-- 5.2 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 5 · 定價錨點</div>
+      <h1>台灣大願意為一個「機房殼」付到每 kW-IT 每月 4,560 元</h1>
+      <p class="sub">這是目前台灣市場少數可從公開資料推算出來的 wholesale colocation 定價錨點，可直接作為我方未來場域案的收益假設起點。</p>
+    </div>
+    <div class="flags"><span class="flag blue">已查證（基準）</span><span class="flag amber">我方推論（推算）</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="fig">
+      <div class="figtitle">從 89.83 億租金到每 kW-IT 月租金：四步推算</div>
+      <svg viewBox="0 0 1140 168" role="img" aria-label="定價錨點推算">
+        <defs><marker id="ar10" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1968AD"/></marker></defs>
+        <g>
+          <rect x="20" y="30" width="200" height="86" fill="#E8F1F9" stroke="#1968AD" stroke-width="2"/>
+          <text x="120" y="54" font-size="12" font-weight="700" fill="#5B7285" text-anchor="middle">使用權資產（10.25 年）</text>
+          <text x="120" y="86" font-size="26" font-weight="900" fill="#1968AD" text-anchor="middle">89.83 億</text>
+          <text x="120" y="106" font-size="11" fill="#9FB1C0" text-anchor="middle">已查證｜公司公告</text>
+        </g>
+        <path d="M228 73 H262" stroke="#1968AD" stroke-width="3" marker-end="url(#ar10)"/>
+        <text x="245" y="62" font-size="11" font-weight="700" fill="#5B7285" text-anchor="middle">÷10.25</text>
+        <g>
+          <rect x="270" y="30" width="200" height="86" fill="#fff" stroke="#C6D2DC" stroke-width="2"/>
+          <text x="370" y="54" font-size="12" font-weight="700" fill="#5B7285" text-anchor="middle">年租金</text>
+          <text x="370" y="86" font-size="26" font-weight="900" fill="#12293D" text-anchor="middle">8.76 億</text>
+          <text x="370" y="106" font-size="11" fill="#9FB1C0" text-anchor="middle">元／年</text>
+        </g>
+        <path d="M478 73 H512" stroke="#1968AD" stroke-width="3" marker-end="url(#ar10)"/>
+        <text x="495" y="62" font-size="11" font-weight="700" fill="#5B7285" text-anchor="middle">÷16MW</text>
+        <g>
+          <rect x="520" y="30" width="220" height="86" fill="#fff" stroke="#C6D2DC" stroke-width="2"/>
+          <text x="630" y="54" font-size="12" font-weight="700" fill="#5B7285" text-anchor="middle">每 MW-IT 年租金</text>
+          <text x="630" y="86" font-size="26" font-weight="900" fill="#12293D" text-anchor="middle">5,480 萬</text>
+          <text x="630" y="106" font-size="11" fill="#9FB1C0" text-anchor="middle">元／MW-IT／年</text>
+        </g>
+        <path d="M748 73 H782" stroke="#1968AD" stroke-width="3" marker-end="url(#ar10)"/>
+        <text x="765" y="62" font-size="11" font-weight="700" fill="#5B7285" text-anchor="middle">換算</text>
+        <g>
+          <rect x="790" y="20" width="330" height="106" fill="#E09A2B"/>
+          <text x="955" y="48" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">每 kW-IT 月租金</text>
+          <text x="955" y="90" font-size="36" font-weight="900" fill="#fff" text-anchor="middle">4,560 元</text>
+          <text x="955" y="112" font-size="11.5" fill="#FBEAE5" text-anchor="middle">不含 IT 設備的機房殼</text>
+        </g>
+        <text x="20" y="150" font-size="12" fill="#B4432C" font-weight="700">【需查證】租金是否含電費、是否含機電設備、是否含維運服務——這三項會顯著改變上述單價的意義。會談時可自然帶到，對方沒有理由不能談。</text>
+      </svg>
+    </div>
+    <div class="two-col">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th colspan="2">龜山 TAIDC 基準事實【已查證】</th></tr></thead>
+          <tbody>
+            <tr><td>業主／承租方</td><td><b>台灣大哥大（3045）</b></td></tr>
+            <tr class="hl-row"><td>出租方／園區</td><td><b>美商 Vantage（威德新）</b>——龜山不是自建，是租的</td></tr>
+            <tr><td>租期</td><td>2025/07/01 – 2035/09/30（10 年 3 個月）</td></tr>
+            <tr><td>使用權資產金額</td><td>原近 88 億元 → 因部分樓層提前承租，更新為 <b>89.83 億元</b></td></tr>
+            <tr><td>最大負載容量</td><td class="num">25 MW</td></tr>
+            <tr><td>資訊設備負載（IT Load）</td><td class="num">16 MW</td></tr>
+            <tr><td>單櫃散熱</td><td class="num">可達 135 kW（液冷）</td></tr>
+            <tr><td>銷售狀況</td><td><b>預售階段即 100% 完售</b>；2026 年第一年即獲利</td></tr>
+            <tr><td>算力夥伴</td><td>GMI Cloud，建置 NVIDIA GB300</td></tr>
+            <tr><td>財報表現</td><td>2026 Q1 AI 與雲服務營收年增 <b>471%</b>；AIDC 與算力服務年增 87%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="three-col" style="gap:10px">
+          <div class="metric"><div class="k">1.56</div><div class="t">設計 PUE 上限（25÷16）。實際液冷應在 1.2–1.3，<b>代表尚有 5–6 MW 餘裕</b></div></div>
+          <div class="metric teal"><div class="k">約 118</div><div class="t">機櫃數推估（16MW ÷ 135kW）</div></div>
+          <div class="metric amber"><div class="k">3,500 萬</div><div class="t">每 MW（總容量）年租金</div></div>
+        </div>
+        <div class="card coral"><h3>龜山案暴露的三件事</h3>
+          <ul class="list coral" style="margin-top:6px;font-size:.88rem">
+            <li><b>龜山不是自建，是租的。</b>這代表台灣大目前不具備、也未選擇自建 AIDC 場域的能力</li>
+            <li><b>預售階段就 100% 完售，開張第一年就賺錢。</b>需求不是問題，供給才是</li>
+            <li><b>台灣大已宣示要繼續擴大 AIDC 與海纜投資</b>，並與 GMI Cloud 簽 MOU 布局東南亞、東北亞、美洲、歐洲</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-foot"><div>來源：聯合報（2026/07/31）、台灣大官網新聞稿（2026/06/03）、鉅亨網｜推算為概算，正式引用前須確認租金涵蓋範圍</div><div class="pageno">5.2</div></div>
+</section>
+
+<!-- 5.3 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 5 · 缺口</div>
+      <h1>光電加儲能能拿到綠電憑證，但餵不飽一座 24/7 的資料中心</h1>
+      <p class="sub">年度電量帳面上綽綽有餘，小時級匹配卻完全對不上。AIDC 真正需要的是「有電、隨時有電、停電也有電」。</p>
+    </div>
+    <div class="flags"><span class="flag grey">我方推論</span><span class="flag amber">會談要先建立的共識</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="fig">
+      <div class="figtitle">典型日：光電出力 vs AIDC 負載 vs 儲能可補時段</div>
+      <svg viewBox="0 0 1140 320" role="img" aria-label="日負載匹配圖">
+        <rect x="70" y="40" width="248" height="220" fill="#FBEAE5" opacity=".55"/>
+        <rect x="812" y="40" width="248" height="220" fill="#FBEAE5" opacity=".55"/>
+        <g stroke="#EDF1F5" stroke-width="1">
+          <line x1="70" y1="40" x2="1060" y2="40"/><line x1="70" y1="100" x2="1060" y2="100"/>
+          <line x1="70" y1="160" x2="1060" y2="160"/><line x1="70" y1="220" x2="1060" y2="220"/>
+        </g>
+        <line x1="70" y1="260" x2="1060" y2="260" stroke="#C6D2DC" stroke-width="2"/>
+        <polygon points="317,260 358,225 400,180 441,140 482,110 523,90 565,82 606,90 647,110 688,140 730,180 771,225 812,260"
+          fill="#E09A2B" opacity=".35"/>
+        <polyline points="317,260 358,225 400,180 441,140 482,110 523,90 565,82 606,90 647,110 688,140 730,180 771,225 812,260"
+          fill="none" stroke="#E09A2B" stroke-width="3"/>
+        <rect x="812" y="155" width="165" height="105" fill="#1BB1BF" opacity=".45"/>
+        <rect x="812" y="155" width="165" height="105" fill="none" stroke="#1BB1BF" stroke-width="2.5"/>
+        <line x1="70" y1="155" x2="1060" y2="155" stroke="#1968AD" stroke-width="4"/>
+        <text x="86" y="146" font-size="13.5" font-weight="800" fill="#1968AD">AIDC 負載：24 小時不間斷</text>
+        <text x="565" y="72" font-size="13.5" font-weight="800" fill="#C57F14" text-anchor="middle">光電出力（僅日間約 8 小時）</text>
+        <text x="894" y="205" font-size="12.5" font-weight="800" fill="#0F707A" text-anchor="middle">儲能可補</text>
+        <text x="894" y="224" font-size="11.5" font-weight="700" fill="#0F707A" text-anchor="middle">2–4 小時 duration</text>
+        <text x="194" y="90" font-size="14" font-weight="800" fill="#B4432C" text-anchor="middle">夜間缺口</text>
+        <text x="194" y="112" font-size="12" font-weight="700" fill="#B4432C" text-anchor="middle">補不上</text>
+        <text x="1020" y="90" font-size="14" font-weight="800" fill="#B4432C" text-anchor="middle">夜間缺口</text>
+        <g font-size="11.5" font-weight="700" fill="#5B7285" text-anchor="middle">
+          <text x="70" y="282">00</text><text x="317" y="282">06</text><text x="565" y="282">12</text><text x="812" y="282">18</text><text x="1060" y="282">24</text>
+        </g>
+        <path d="M812 296 H1060 M70 296 H317" stroke="#D95F45" stroke-width="3"/>
+        <text x="565" y="302" font-size="12.5" font-weight="800" fill="#B4432C" text-anchor="middle">夜間 12 小時中，儲能只能補 2–4 小時</text>
+      </svg>
+      <div class="legend"><span><i style="background:#1968AD"></i>AIDC 負載</span><span><i style="background:#E09A2B"></i>光電出力</span><span><i style="background:#1BB1BF"></i>儲能可補</span><span><i style="background:#FBEAE5"></i>補不上的缺口</span></div>
+    </div>
+    <div class="split-40">
+      <div class="table-wrap">
+        <table style="min-width:auto">
+          <thead><tr><th>年度電量：帳面上綽綽有餘</th><th class="num">概算</th></tr></thead>
+          <tbody>
+            <tr><td>380 MW 光電 × 8,760 h × 容量因數約 14%</td><td class="num"><b>≈ 4.7 億度／年</b></td></tr>
+            <tr><td>一座龜山規模 AIDC（16 MW IT × PUE 1.3 × 8,760 h × 滿載）</td><td class="num"><b>≈ 1.8 億度／年</b></td></tr>
+            <tr class="hl-row"><td>380 MW 光電年發電量可覆蓋</td><td class="num"><b>約 2.6 座</b>龜山規模 AIDC</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="warn"><b>儲能案場的 duration 通常為 2–4 小時，設計目的多為電力交易與電網輔助服務</b>，不是為了支撐一座 24/7 的資料中心。<br><br><span class="chip coral">需查證</span> 富邦能源 354 MW 儲能的實際 duration 與商業定位（做 E-dReg／輔助服務，還是做綠電時間移轉）——<b>這一題直接決定我方切入的角度</b>。</div>
+        <div class="big-callout">
+          <div class="label">結論</div>
+          <div class="answer">富邦能源目前的資產組合，可以幫 AIDC 拿到年度綠電憑證與 RE 比例，但無法提供 24/7 的實質供電保障。</div>
+          <div class="more">這一塊目前是空的——而這正是 Part 3（燃氣發電機）與 Part 4（貨櫃型佈署）能填的位置。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-foot"><div>發電量與負載為概算，容量因數 14% 為台灣地面型光電概略值；正式提案前須以實際案場資料重算</div><div class="pageno">5.3</div></div>
+</section>
+
+<!-- 5.4 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 5 · 定位</div>
+      <h1>泓德已經在裡面，界線必須自己先畫清楚</h1>
+      <p class="sub">泓德能源持股約 10%，且是富邦能源的技術與整合能力來源。若我方進場的說法讓對方覺得是要取代泓德，談判會立刻僵掉。</p>
+    </div>
+    <div class="flags"><span class="flag grey">我方推論</span><span class="flag coral">談判紅線</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="split-60">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:52%">環節</th><th class="ctr" style="width:24%">泓德能源</th><th class="ctr" style="width:24%">進金生</th></tr></thead>
+          <tbody>
+            <tr><td>光電開發與 EPC</td><td class="ctr"><span class="chip teal">✓</span></td><td class="ctr">—</td></tr>
+            <tr><td>儲能開發與電力交易</td><td class="ctr"><span class="chip teal">✓</span></td><td class="ctr">—</td></tr>
+            <tr class="hl-row"><td><b>燃氣／汽電共生／自備電源</b></td><td class="ctr">✗</td><td class="ctr"><span class="chip amber"><b>✓</b></span></td></tr>
+            <tr class="hl-row"><td><b>AIDC 場域土建（基座、載重、抗震、防洪）</b></td><td class="ctr">✗</td><td class="ctr"><span class="chip amber"><b>✓</b></span></td></tr>
+            <tr class="hl-row"><td><b>高壓／特高壓受電與台電併聯</b></td><td class="ctr">✗</td><td class="ctr"><span class="chip amber"><b>✓</b></span></td></tr>
+            <tr class="hl-row"><td><b>機房機電、冷卻系統、消防整合</b></td><td class="ctr">✗</td><td class="ctr"><span class="chip amber"><b>✓</b></span></td></tr>
+            <tr class="hl-row"><td><b>統包統籌與工程管理</b></td><td class="ctr">✗</td><td class="ctr"><span class="chip amber"><b>✓</b></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="big-callout">
+          <div class="label">會談時建議明講的一句話</div>
+          <div class="answer">「泓德把太陽跟電池做好了，我們做的是他們不做的那一段——把電送進機房、把機房蓋起來、以及在沒有太陽的那 16 小時裡也有電。」</div>
+        </div>
+        <div class="card"><h3>為什麼這句話要在開場就說</h3><p>這不是障礙，而是<b>必須主動處理的定位問題</b>。先畫界線，對方才聽得進後面的內容；若讓對方自己去猜我方的意圖，整場會談的重心會被扯到「你們跟泓德誰做」。</p></div>
+      </div>
+    </div>
+    <div class="three-col">
+      <div class="card coral"><h3>注意事項 ①　不要碰泓德的地盤</h3><p>開場就把界線畫清楚，避免對方誤解為要取代既有技術夥伴。</p></div>
+      <div class="card coral"><h3>注意事項 ②　這是一家壽險主導的公司</h3><p>富邦人壽持股逾七成。壽險資金重視<b>長期穩定現金流與可預測性</b>，不是重視工程毛利。<br><b>我方的論述應該講「可預測的供電保障」，不是講「工程做得快」。</b></p></div>
+      <div class="card coral"><h3>注意事項 ③　一人兼兩邊是機會也是風險</h3><p>機會是決策鏈短；風險是我方若同時被視為台灣大的供應商與富邦能源的合作對象，<b>角色可能被混淆</b>。建議主動釐清：是跟富邦能源合作（電力側）、接台灣大的工程（需求側），或兩者兼具但分開計價。</p></div>
+    </div>
+  </div>
+  <div class="slide-foot"><div>泓德能源（6873）持股與技術角色為已查證；分工界線為我方推論</div><div class="pageno">5.4</div></div>
+</section>
+
+<!-- 5.5 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 5 · 合作型態</div>
+      <h1>以 A 切入、以 B 為目標、C 只點到為止</h1>
+      <p class="sub">龜山案證明台灣大目前選擇「租」而非「建」。從租到建是一個決策轉折，對方尚未跨過——若一開始就談共同持有場域，等於要求對方同時做兩個決策。</p>
+    </div>
+    <div class="flags"><span class="flag grey">我方推論</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:14%">型態</th><th style="width:22%">內容</th><th style="width:14%">我方投入</th><th style="width:16%">我方取得</th><th style="width:34%">代價／風險與成立條件</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>A　單案工程夥伴</b><br><span class="chip teal">最淺、最快</span></td>
+            <td>富邦能源或台灣大自建下一座 AIDC 時，我方承接電力與土建機電統包</td>
+            <td>工程能量、投標成本</td>
+            <td>工程收入</td>
+            <td>議價地位最弱、隨時可被替換、無法累積場域資產。<br><b>成立條件：只要對方有自建計畫即可，不需要對方改變任何既有安排。可在下一次會談就進入實質討論。</b></td>
+          </tr>
+          <tr class="hl-row">
+            <td><b>B　電力側共同投資</b><br><span class="chip amber">明確目標</span></td>
+            <td>與富邦能源合資設立場域供電主體，投入燃氣汽電共生／自備電源／儲能，向 AIDC 供電</td>
+            <td>資本 ＋ 電力工程與營運能力</td>
+            <td>長期售電或供電服務收入、場域內的長期地位</td>
+            <td>① 資本鎖定長期　② 燃料成本與售電價差風險　③ 須釐清是否觸及電業法自用發電設備餘電售電比例限制　④ <b>富邦人壽持股逾七成，其投資決策節奏與報酬要求與工程業不同</b>。<br><b>成立條件：對方認同「光儲補不了 24/7」這個前提——這是會談中最需要先建立的共識。</b></td>
+          </tr>
+          <tr>
+            <td><b>C　場域共同開發</b><br><span class="chip grey">最深、暫不提</span></td>
+            <td>以 Power Couple 模式共同開發新場域：我方出地或找地＋出電力與工程，富邦出資金與算力需求，共同持有場域</td>
+            <td>土地取得或引介、資本、全案工程、長期營運</td>
+            <td>場域資產、長期現金流、可複製的模式</td>
+            <td>① 投入最大、回收最慢　② 需要我方目前不完整的算力側認知　③ 治理與退場機制複雜　④ 若涉促參 BOO，<b>租稅優惠綁定 GPU 機櫃投資人，我方在電力與土建側拿不到優惠</b>（見 Part 2）。<br><b>成立條件：需先有 A 或 B 的實績建立信任，不宜在下一次會談就直接提。</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="split-40">
+      <div class="fig">
+        <div class="figtitle">建議的推進節奏</div>
+        <svg viewBox="0 0 460 160" role="img" aria-label="A B C 推進節奏">
+          <defs><marker id="ar11" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1968AD"/></marker></defs>
+          <rect x="14" y="94" width="124" height="46" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="2"/>
+          <text x="76" y="114" font-size="16" font-weight="800" fill="#12818C" text-anchor="middle">A</text>
+          <text x="76" y="132" font-size="11.5" font-weight="700" fill="#12293D" text-anchor="middle">下次會談就談</text>
+          <path d="M146 110 H166" stroke="#1968AD" stroke-width="3" marker-end="url(#ar11)"/>
+          <rect x="174" y="66" width="124" height="46" fill="#FCF2DE" stroke="#E09A2B" stroke-width="2"/>
+          <text x="236" y="86" font-size="16" font-weight="800" fill="#C57F14" text-anchor="middle">B</text>
+          <text x="236" y="104" font-size="11.5" font-weight="700" fill="#12293D" text-anchor="middle">明確目標</text>
+          <path d="M306 82 H326" stroke="#1968AD" stroke-width="3" marker-end="url(#ar11)"/>
+          <rect x="334" y="34" width="112" height="46" fill="#F4F7FA" stroke="#9FB1C0" stroke-width="2" stroke-dasharray="5 4"/>
+          <text x="390" y="54" font-size="16" font-weight="800" fill="#5B7285" text-anchor="middle">C</text>
+          <text x="390" y="72" font-size="11.5" font-weight="700" fill="#5B7285" text-anchor="middle">點到為止</text>
+          <text x="14" y="22" font-size="12" fill="#5B7285">深度／投入</text>
+          <path d="M60 26 L60 152" stroke="#D9E3EC" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="warn"><b>從「租」到「建」是對方的決策轉折點，不是我方能替他跨的。</b><br><br>我方若一開始就談共同持有場域，等於要求對方同時做兩個決策（自建 ＋ 找新夥伴），成功率低。<b>先讓對方看到我方能把「建」這件事做起來，B 與 C 是自然的延伸。</b></div>
+    </div>
+  </div>
+  <div class="slide-foot"><div>董總指定方向為共同開發場域（地＋電＋算力）；三種型態均屬此範疇，深度與代價差異很大</div><div class="pageno">5.5</div></div>
+</section>
+
+<!-- 5.6 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 5 · 會談議程</div>
+      <h1>「下一座是租還是建？」——這是唯一真正的分水嶺</h1>
+      <p class="sub">租＝我方只能做承租方的機電；建＝全案都在。其餘議題都由這一題展開。</p>
+    </div>
+    <div class="flags"><span class="flag blue">行動清單</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="ctr" style="width:8%">#</th><th style="width:46%">我方要先問清楚的五個問題</th><th>為何要問</th></tr></thead>
+          <tbody>
+            <tr class="hl-row"><td class="ctr">1</td><td><b>下一座 AIDC 是繼續租，還是要自建？</b></td><td><b>唯一真正的分水嶺</b></td></tr>
+            <tr><td class="ctr">2</td><td>龜山 89.83 億租金是否含電費、含機電、含維運？</td><td>決定我方定價錨點的真實意義</td></tr>
+            <tr><td class="ctr">3</td><td>354 MW 儲能的 duration 與商業定位為何？</td><td>決定「光儲補不了 24/7」的論述能不能成立</td></tr>
+            <tr><td class="ctr">4</td><td>富邦能源與台灣大之間，AIDC 供電是走 CPPA 轉供、直供，還是只買憑證？</td><td>決定我方是賣工程、賣電，還是賣調度</td></tr>
+            <tr><td class="ctr">5</td><td>海外 AIDC（東南亞、東北亞）是否也在富邦能源的供電範圍內？</td><td>若是，機會遠大於單一國內案</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="card teal"><h3>可以直接放上桌的四樣東西</h3>
+          <div class="timeline" style="margin-top:10px">
+            <div class="step"><div class="n teal">1</div><div class="tx"><b>貨櫃型模組化 AIDC 方案比較</b>Fourier（Intel 生態）vs 台達電預製型，含規格、佔地、PUE 與已查證的技術疑點。重點：<b>貨櫃可把土建工期從 24 個月壓到 6 個月</b>。<span class="chip grey">見 Part 4</span></div></div>
+            <div class="step"><div class="n teal">2</div><div class="tx"><b>橋接期供電方案</b>SGT-A05 燃機大修機交期僅 2 個月（新機 10–12 個月），原廠提供<b>引擎租賃</b>，可把 CapEx 轉 OpEx。適用「台電電還沒到、機房已就位」的空窗期。<span class="chip grey">見 Part 3</span></div></div>
+            <div class="step"><div class="n amber">3</div><div class="tx"><b>一個對方一定沒算過的數字</b>大型電力變壓器交期已達約 <b>2.5 年</b>，重電廠在手訂單能見度到 2027–2028。貨櫃 6 個月到、變壓器 30 個月到——<b>這個時間差就是我方的價值</b>。<span class="chip grey">見 1.3</span></div></div>
+            <div class="step"><div class="n teal">4</div><div class="tx"><b>促參法 BOO 的完整拆解</b>若富邦有意走這條路（<b>富邦人壽已有 BOO 實績：新竹湖口物流案</b>），我方已掌握 §36–§40 的完整優惠、政策公告的評分機制與地雷。數發部第 2 波政策公告已於 8 月初發布。<span class="chip grey">見 Part 2</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="split-60">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="ctr" style="width:8%">#</th><th style="width:56%">待確認清單</th><th>該問誰</th></tr></thead>
+          <tbody>
+            <tr><td class="ctr">1</td><td>林之晨於台灣大之正確職稱（2026 年報導不一致）</td><td>公開資料／會談前確認</td></tr>
+            <tr><td class="ctr">2</td><td>龜山租金 89.83 億是否含電費、機電、維運</td><td>富邦能源／台灣大</td></tr>
+            <tr><td class="ctr">3</td><td>富邦能源 354 MW 儲能之 duration 與商業定位</td><td>富邦能源</td></tr>
+            <tr><td class="ctr">4</td><td>富邦能源 380 MW 光電之案場位置與併網時程</td><td>富邦能源</td></tr>
+            <tr class="hl-row"><td class="ctr">5</td><td><b>下一座 AIDC 之選址、規模、自建或承租</b></td><td>台灣大／富邦能源</td></tr>
+            <tr><td class="ctr">6</td><td>台灣大與 GMI Cloud 海外案（東南亞等）之供電規劃</td><td>台灣大</td></tr>
+            <tr><td class="ctr">7</td><td>Vantage 在台灣的其他園區規劃（是否有我方可切入的工程）</td><td>公開資料／Vantage</td></tr>
+            <tr><td class="ctr">8</td><td>富邦人壽對能源投資的報酬率門檻與投資期間偏好</td><td>富邦能源／業界打聽</td></tr>
+            <tr><td class="ctr">9</td><td>龜山案基地之台電受電架構與饋線來源</td><td>台電桃園區處／現場</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="card"><h3>往下：功能層級</h3>
+          <ul class="list" style="margin-top:6px;font-size:.86rem">
+            <li><b>業務開發：</b>會前完成五個問題的準備，會談以「下一座是租還是建」為核心</li>
+            <li><b>設計規劃：</b>把貨櫃型與燃機方案的技術結論整理成 10 頁內可上桌簡報，重點放在工期壓縮與橋接供電</li>
+            <li><b>資材採購：</b>變壓器交期應在會談中提出，同步向華城、士電、中興電、亞力確認保留產能條件——<b>若我方能替對方鎖住長交期料件，這本身就是不可替代的貢獻</b></li>
+            <li><b>財務：</b>若走型態 B，需預先估算合資供電主體的資本結構與我方可承受的出資規模</li>
+          </ul>
+        </div>
+        <div class="note"><b>往上（策略層級）：</b>富邦能源是目前台灣少數同時握有資金、綠電資產與算力需求的單一對象，且決策鏈極短。<b>這在台灣不容易找到第二個。</b>但若走型態 B 或 C，代表進金生要從工程業跨到能源投資業——這是資產配置決策，不是接案決策。</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-foot"><div>本頁為談判準備材料，非投資建議｜資料來源見附錄與各頁註腳</div><div class="pageno">5.6</div></div>
+</section>
+
+</div>
+
 <!-- ================= DECK BAR ================= -->
 <div class="deckbar" id="deckbar">
   <div class="progress"><div class="fill" id="progressFill"></div></div>
@@ -1974,17 +2406,19 @@ svg text{font-family:inherit}
     p1: [].slice.call(document.querySelectorAll('#view-p1 .slide')),
     p2: [].slice.call(document.querySelectorAll('#view-p2 .slide')),
     p3: [].slice.call(document.querySelectorAll('#view-p3 .slide')),
-    p4: [].slice.call(document.querySelectorAll('#view-p4 .slide'))
+    p4: [].slice.call(document.querySelectorAll('#view-p4 .slide')),
+    p5: [].slice.call(document.querySelectorAll('#view-p5 .slide'))
   };
-  var order = ['p1','p2','p3','p4'];
+  var order = ['p1','p2','p3','p4','p5'];
   var state = { view:'home', idx:0 };
-  var last = { p1:0, p2:0, p3:0, p4:0 };
+  var last = { p1:0, p2:0, p3:0, p4:0, p5:0 };
   var views = {
     home: document.getElementById('view-home'),
     p1: document.getElementById('view-p1'),
     p2: document.getElementById('view-p2'),
     p3: document.getElementById('view-p3'),
-    p4: document.getElementById('view-p4')
+    p4: document.getElementById('view-p4'),
+    p5: document.getElementById('view-p5')
   };
   var deckbar = document.getElementById('deckbar');
   var fill = document.getElementById('progressFill');
@@ -2012,7 +2446,7 @@ svg text{font-family:inherit}
   function goHash(hash){
     hash = (hash||'#home').replace('#','');
     if(hash==='home'||hash===''){ state.view='home'; render(); return; }
-    var m = hash.match(/^(p1|p2|p3|p4)-(\d+)$/);
+    var m = hash.match(/^(p1|p2|p3|p4|p5)-(\d+)$/);
     if(m){
       var v=m[1], i=parseInt(m[2],10)-1;
       if(parts[v][i]){ state.view=v; state.idx=i; render(); return; }
