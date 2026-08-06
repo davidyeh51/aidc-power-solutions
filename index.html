@@ -227,6 +227,7 @@ svg text{font-family:inherit}
     <a href="#p1" data-nav="p1">1 總覽</a>
     <a href="#p2" data-nav="p2">2 AIDC 市場趨勢</a>
     <a href="#p3" data-nav="p3">3 促參法補助</a>
+    <a href="#p4" data-nav="p4">4 算力中心架構</a>
     <a href="#a1" data-nav="a1">附錄一 貨櫃型算力伺服器</a>
     <a href="#a2" data-nav="a2">附錄二 西門子燃氣發電機</a>
   </nav>
@@ -264,7 +265,7 @@ svg text{font-family:inherit}
       <h1>算力的瓶頸從來不是機櫃，是電</h1>
       <p class="lede">
         GPU 機櫃 12 週到貨、貨櫃機房 6 個月上線，變壓器卻要 2.5 年。
-        本簡報彙整 AI 算力中心的三條解決路徑——台灣 AIDC 市場現況、促參法 BOO 的錢與法，以及貨櫃型算力伺服器與燃氣發電機兩項技術方案——
+        本簡報彙整 AI 算力中心的完整路徑——台灣市場現況、促參法 BOO 的錢與法、從 415 VAC 到 800 VDC 的架構演進，以及貨櫃型算力伺服器與燃氣發電機兩項技術方案——
         標出每一條路徑上，投資方可以站的位置。
       </p>
       <div class="herometa">
@@ -301,6 +302,14 @@ svg text{font-family:inherit}
         <h2>促參法補助</h2>
         <p>租稅優惠實際剩多少、拿到它要付出什麼。含研討會簡報重繪與逐條法規查證更正。</p>
         <div class="pc-flags"><span class="chip amber">10 頁</span><span class="chip coral">&sect;36 不適用</span></div>
+        <div class="pc-go">進入 &rarr;</div>
+      </a>
+      <a class="part-card c5" href="#p4-1">
+        <svg class="pc-icon" width="30" height="30" viewBox="0 0 30 30"><path d="M3 15h6l3-8 6 16 3-8h6" stroke="#0C3A63" stroke-width="2.4" fill="none" stroke-linejoin="round"/></svg>
+        <div class="pc-eyebrow">PART 4</div>
+        <h2>算力中心架構</h2>
+        <p>從 415 VAC 到 800 VDC 的三步路線圖、儲能改造，以及模組化交付把工期砍半。</p>
+        <div class="pc-flags"><span class="chip blue">6 頁</span><span class="chip coral">800 VDC</span><span class="chip grey">模組化</span></div>
         <div class="pc-go">進入 &rarr;</div>
       </a>
       <a class="part-card c4" href="#a1-1">
@@ -351,6 +360,15 @@ svg text{font-family:inherit}
         <a href="#p3-8"><span class="no">3.8</span>「申請人須自購 GPU」非法規明文</a>
         <a href="#p3-9"><span class="no">3.9</span>55 分是整份報告的總分</a>
         <a href="#p3-10"><span class="no">3.10</span>首波三家申請、兩家通過</a>
+      </div>
+      <div class="card">
+        <h3>PART 4 &middot; 算力中心架構</h3>
+        <a href="#p4-1"><span class="no">4.1</span>從電網到晶片，電要被轉換五次</a>
+        <a href="#p4-2"><span class="no">4.2</span>三步走：415 VAC → Sidecar → 中壓直轉</a>
+        <a href="#p4-3"><span class="no">4.3</span>800 VDC Sidecar：只改機櫃那一側</a>
+        <a href="#p4-4"><span class="no">4.4</span>中壓一次轉換到 800 VDC</a>
+        <a href="#p4-5"><span class="no">4.5</span>既有機房的儲能改造</a>
+        <a href="#p4-6"><span class="no">4.6</span>模組化：12 個月 vs 24 個月</a>
       </div>
       <div class="card coral">
         <h3>附錄一 &middot; 貨櫃型算力伺服器</h3>
@@ -1675,6 +1693,479 @@ svg text{font-family:inherit}
 
 </div>
 
+<!-- ================= PART 4 : 算力中心架構 ================= -->
+<div class="view" id="view-p4">
+
+<!-- 4.1 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 4 · 算力中心架構</div>
+      <h1>從電網到晶片，電要被轉換五次——每一次都在漏電</h1>
+      <p class="sub">傳統架構下，電以 480V 三相交流進場，轉直流充電池、再轉回 415V 交流配電，最後又轉成 48V 直流給機櫃與板級使用。減少轉換級數，就是提高真正抵達運算的那一份電。</p>
+    </div>
+    <div class="flags"><span class="flag blue">現況架構</span><span class="flag grey">GRID TO CORE</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="fig">
+      <div class="figtitle">現況：電網 → 機房 → 機櫃 → 晶片的完整轉換鏈</div>
+      <svg viewBox="0 0 1160 300" role="img" aria-label="Grid to Core 現況架構">
+        <defs><marker id="arG" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#5B7285"/></marker></defs>
+        <text x="120" y="26" font-size="13.5" font-weight="800" fill="#5B7285">Grid 電網</text>
+        <rect x="300" y="12" width="850" height="230" fill="none" stroke="#1968AD" stroke-width="2"/>
+        <text x="330" y="32" font-size="13.5" font-weight="800" fill="#1968AD">Hall 機房</text>
+        <rect x="700" y="46" width="440" height="186" fill="none" stroke="#3F86C4" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <text x="720" y="64" font-size="12.5" font-weight="800" fill="#3F86C4">Rack 機櫃</text>
+        <rect x="940" y="80" width="190" height="120" fill="#E8F1F9" stroke="#1968AD"/>
+        <text x="1035" y="100" font-size="12.5" font-weight="800" fill="#1968AD" text-anchor="middle">Core / GPU Board</text>
+
+        <g>
+          <path d="M60 130 L60 90 M46 96 h28 M46 108 h28 M60 130 h60" stroke="#12293D" stroke-width="2.5" fill="none"/>
+          <text x="60" y="152" font-size="11.5" fill="#5B7285" text-anchor="middle">13.8–35 kV AC</text>
+        </g>
+        <rect x="130" y="96" width="110" height="66" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="185" y="122" font-size="12.5" font-weight="700" fill="#12293D" text-anchor="middle">變壓器</text>
+        <text x="185" y="140" font-size="11" fill="#9FB1C0" text-anchor="middle">Transformer</text>
+        <path d="M244 129 H292" stroke="#5B7285" stroke-width="2" marker-end="url(#arG)"/>
+        <text x="268" y="120" font-size="11.5" font-weight="700" fill="#B4432C" text-anchor="middle">480V AC</text>
+
+        <rect x="330" y="96" width="120" height="66" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="390" y="122" font-size="12.5" font-weight="700" fill="#12293D" text-anchor="middle">UPS</text>
+        <text x="390" y="140" font-size="11" fill="#9FB1C0" text-anchor="middle">AC→DC→AC</text>
+        <path d="M454 129 H520" stroke="#5B7285" stroke-width="2" marker-end="url(#arG)"/>
+        <text x="487" y="120" font-size="11.5" font-weight="700" fill="#B4432C" text-anchor="middle">415V AC</text>
+
+        <rect x="560" y="80" width="120" height="120" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="620" y="106" font-size="12.5" font-weight="700" fill="#12293D" text-anchor="middle">Compute Rack</text>
+        <rect x="576" y="118" width="88" height="26" fill="#EDF1F5"/>
+        <text x="620" y="136" font-size="11.5" font-weight="700" fill="#5B7285" text-anchor="middle">PSU</text>
+        <text x="620" y="164" font-size="11" fill="#B4432C" text-anchor="middle">415V AC → 48V DC</text>
+        <text x="620" y="182" font-size="11" fill="#B4432C" text-anchor="middle">48V DC → 12V DC</text>
+        <path d="M684 140 H936" stroke="#5B7285" stroke-width="2" marker-end="url(#arG)"/>
+
+        <rect x="960" y="118" width="150" height="60" fill="#fff" stroke="#1968AD" stroke-width="2"/>
+        <text x="1035" y="142" font-size="12.5" font-weight="700" fill="#12293D" text-anchor="middle">GPU</text>
+        <text x="1035" y="162" font-size="11.5" font-weight="700" fill="#B4432C" text-anchor="middle">12V DC → 0.6V DC</text>
+
+        <rect x="60" y="252" width="1080" height="36" fill="#FBEAE5"/>
+        <text x="76" y="276" font-size="13" font-weight="800" fill="#B4432C">每一級中間轉換都會產生損耗。減少轉換級數 → 提升端到端效率 → 提高「真正抵達運算」的電網電力佔比。</text>
+      </svg>
+    </div>
+    <div class="split-60">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%">環節</th><th style="width:24%">電壓形式</th><th style="width:20%">轉換型態</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>電網進場</td><td>13.8–35 kV AC</td><td>—</td><td>中壓交流</td></tr>
+            <tr><td>降壓變壓器</td><td>→ 480 V AC</td><td>AC → AC</td><td>傳統低壓配電起點</td></tr>
+            <tr class="hl-row"><td><b>UPS</b></td><td>480 V AC → 415 V AC</td><td><b>AC → DC → AC</b></td><td>為電池充電轉直流，再逆變回交流供配電——<b>一進一出兩次轉換</b></td></tr>
+            <tr class="hl-row"><td><b>機櫃 PSU</b></td><td>415 V AC → 48 V DC</td><td><b>AC → DC</b></td><td>整流回直流</td></tr>
+            <tr><td>板級一次降壓</td><td>48 V DC → 12 V DC</td><td>DC → DC</td><td>—</td></tr>
+            <tr><td>晶片供電</td><td>12 V DC → 0.6 V DC</td><td>DC → DC</td><td>GPU 核心電壓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="big-callout">
+          <div class="label">產業正在轉向</div>
+          <div class="answer">高壓直流配電：800 VDC（或 ±400 VDC），長期討論延伸到 1,200 V 與 1,600 V DC。</div>
+          <div class="more">動機很直觀——把「交流進、直流充、交流配、直流用」這條來回轉換的鏈條拉直。</div>
+        </div>
+        <div class="note"><b>與附錄一的連動：</b>800VDC 目前<b>不是單一標準</b>。NVIDIA 採單極 800V（+800V 單軌 ＋ 回路），刻意置於 OCP 開放電源規範之外；OCP 另有 Diablo 400 規範。<b>兩條路線並存，設計選型前必須先確認客戶綁哪一條。</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-foot"><div>來源：設備商簡報「GRID TO CORE: TODAY」與產業技術文獻｜800VDC 標準路線見附錄一.1</div><div class="pageno">4.1</div></div>
+</section>
+
+<!-- 4.2 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 4 · 路線圖</div>
+      <h1>三步走：415 VAC → 800 VDC Sidecar → 中壓直轉 800 VDC</h1>
+      <p class="sub">不是二選一，是同一條路上的三個位置。決定投資方要在哪一步進場的，是既有機房的改造彈性與客戶的時程壓力。</p>
+    </div>
+    <div class="flags"><span class="flag blue">架構演進</span><span class="flag grey">效率為原廠宣稱值</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="fig">
+      <div class="figtitle">三階段演進與端到端效率</div>
+      <svg viewBox="0 0 1160 320" role="img" aria-label="三階段路線圖">
+        <defs><marker id="arR" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0 0 L11 5.5 L0 11 z" fill="#1968AD"/></marker></defs>
+        <g>
+          <rect x="20" y="30" width="330" height="150" fill="#F1F4F7" stroke="#9FB1C0" stroke-width="2"/>
+          <circle cx="56" cy="64" r="18" fill="#9FB1C0"/><text x="56" y="71" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+          <text x="86" y="60" font-size="17" font-weight="900" fill="#5B7285">現況</text>
+          <text x="86" y="82" font-size="15" font-weight="800" fill="#12293D">415 VAC</text>
+          <text x="40" y="112" font-size="12.5" fill="#5B7285">傳統低壓交流配電架構</text>
+          <text x="40" y="134" font-size="12.5" fill="#5B7285">轉換級數最多、線損最高</text>
+          <rect x="40" y="146" width="290" height="24" fill="#fff" stroke="#C6D2DC"/>
+          <text x="185" y="163" font-size="12.5" font-weight="700" fill="#5B7285" text-anchor="middle">改造衝擊：不適用（現狀）</text>
+        </g>
+        <path d="M358 105 H392" stroke="#1968AD" stroke-width="3.5" marker-end="url(#arR)"/>
+        <g>
+          <rect x="400" y="20" width="340" height="170" fill="#E8F1F9" stroke="#1968AD" stroke-width="2.5"/>
+          <circle cx="436" cy="56" r="18" fill="#1968AD"/><text x="436" y="63" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">2</text>
+          <text x="466" y="52" font-size="17" font-weight="900" fill="#1968AD">過渡</text>
+          <text x="466" y="74" font-size="15" font-weight="800" fill="#12293D">800 VDC Sidecar</text>
+          <text x="420" y="104" font-size="12.5" fill="#12293D">在既有 AC 架構旁部署 800 VDC</text>
+          <text x="420" y="126" font-size="12.5" fill="#12293D">只改 White Space，前端 AC 全部保留</text>
+          <rect x="420" y="140" width="300" height="36" fill="#fff" stroke="#1968AD"/>
+          <text x="570" y="163" font-size="12.5" font-weight="800" fill="#1968AD" text-anchor="middle">改造衝擊：低　｜　可分區、可分期</text>
+        </g>
+        <path d="M748 105 H782" stroke="#1968AD" stroke-width="3.5" marker-end="url(#arR)"/>
+        <g>
+          <rect x="790" y="30" width="350" height="150" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="2"/>
+          <circle cx="826" cy="64" r="18" fill="#1BB1BF"/><text x="826" y="71" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+          <text x="856" y="60" font-size="17" font-weight="900" fill="#12818C">終局</text>
+          <text x="856" y="82" font-size="15" font-weight="800" fill="#12293D">MV → 800 VDC / SST</text>
+          <text x="810" y="112" font-size="12.5" fill="#12293D">中壓直接一次轉換至 800 VDC</text>
+          <text x="810" y="134" font-size="12.5" fill="#12293D">移除多段低壓 AC 配電與轉換</text>
+          <rect x="810" y="146" width="310" height="24" fill="#fff" stroke="#1BB1BF"/>
+          <text x="965" y="163" font-size="12.5" font-weight="700" fill="#12818C" text-anchor="middle">改造衝擊：高　｜　適用新建案場</text>
+        </g>
+        <line x1="60" y1="252" x2="1120" y2="252" stroke="#D9E3EC" stroke-width="2"/>
+        <g font-size="11" fill="#9FB1C0" text-anchor="middle">
+          <text x="60" y="276">94%</text><text x="330" y="276">95%</text><text x="600" y="276">96%</text><text x="870" y="276">97%</text><text x="1120" y="276">98%</text>
+        </g>
+        <rect x="60" y="222" width="270" height="26" fill="#C6D2DC"/>
+        <text x="344" y="240" font-size="15" font-weight="800" fill="#5B7285">95%</text>
+        <rect x="60" y="222" width="0" height="0" fill="none"/>
+        <rect x="400" y="222" width="0" height="0"/>
+        <text x="60" y="212" font-size="12.5" font-weight="800" fill="#5B7285">端到端效率（原廠宣稱值）</text>
+        <rect x="60" y="222" width="270" height="26" fill="#C6D2DC"/>
+        <rect x="336" y="222" width="0" height="26"/>
+        <g>
+          <rect x="392" y="222" width="270" height="26" fill="#1968AD"/>
+          <text x="676" y="240" font-size="15" font-weight="800" fill="#1968AD">96.5%</text>
+          <rect x="724" y="222" width="270" height="26" fill="#1BB1BF"/>
+          <text x="1008" y="240" font-size="15" font-weight="800" fill="#12818C">98.5%</text>
+        </g>
+        <text x="60" y="304" font-size="12.5" font-weight="700" fill="#B4432C">效率數字為設備商簡報宣稱值，量測邊界與負載條件未載明；引用前應向原廠索取定義與第三方驗證。</text>
+      </svg>
+    </div>
+    <div class="three-col">
+      <div class="card grey"><h3>誰適合停在第 1 步</h3><p>既有機房、單櫃密度 5–20kW、短期內沒有 AI 訓練負載進駐。<b>此時投入 800VDC 改造，回收期算不出來。</b></p></div>
+      <div class="card"><h3>誰適合走第 2 步</h3><p>既有機房要接 AI 負載、單櫃密度衝到 100kW 以上，但<b>土建與前端配電不能大動</b>、也不能長時間停機。這是目前台灣既有 IDC 最常見的情境。</p></div>
+      <div class="card teal"><h3>誰適合直接跳第 3 步</h3><p><b>新建案場</b>，且從一開始就設定為 AI Factory。沒有既有設施的包袱，架構可以一次做對。</p></div>
+    </div>
+  </div>
+  <div class="slide-foot"><div>來源：設備商簡報「過渡式 800Vdc Sidecar」「長期方向：由中壓直供 800Vdc」</div><div class="pageno">4.2</div></div>
+</section>
+
+<!-- 4.3 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 4 · 過渡方案</div>
+      <h1>800 VDC Sidecar：前端 AC 一根不動，只改機櫃那一側</h1>
+      <p class="sub">中壓降壓變壓器、低壓配電盤、UPS 全部保留，把 AC 轉 DC 移到機櫃側邊。這是導入高壓直流資料中心的必要過渡方案。</p>
+    </div>
+    <div class="flags"><span class="flag blue">改造衝擊低</span><span class="flag amber">95% → 96.5%</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="fig">
+      <div class="figtitle">過渡式 800 VDC Sidecar 架構</div>
+      <svg viewBox="0 0 1160 300" role="img" aria-label="800VDC Sidecar 架構">
+        <defs><marker id="arS" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#1968AD"/></marker>
+               <marker id="arS2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#3C9D6E"/></marker></defs>
+        <rect x="20" y="20" width="620" height="42" fill="#0C3A63"/>
+        <text x="330" y="40" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">保留既有前端 AC 供電設施</text>
+        <text x="330" y="56" font-size="11.5" fill="#9FC6E4" text-anchor="middle">（不變更）</text>
+        <rect x="648" y="20" width="492" height="42" fill="#1968AD"/>
+        <text x="894" y="47" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">White Space 改造區域（導入直流）</text>
+        <rect x="20" y="62" width="620" height="196" fill="#F4F7FA" stroke="#D9E3EC"/>
+        <rect x="648" y="62" width="492" height="196" fill="#E8F1F9" stroke="#1968AD" stroke-dasharray="6 4"/>
+
+        <rect x="44" y="110" width="150" height="100" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="119" y="96" font-size="12.5" font-weight="800" fill="#12293D" text-anchor="middle">中壓降壓變壓器</text>
+        <path d="M74 140 h90 M74 156 h90 M74 172 h90" stroke="#C6D2DC" stroke-width="3"/>
+        <path d="M198 160 H236" stroke="#1968AD" stroke-width="2.5" marker-end="url(#arS)"/>
+        <text x="217" y="152" font-size="11.5" font-weight="800" fill="#1968AD" text-anchor="middle">AC</text>
+
+        <rect x="244" y="110" width="150" height="100" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="319" y="90" font-size="12.5" font-weight="800" fill="#12293D" text-anchor="middle">低壓配電盤</text>
+        <text x="319" y="106" font-size="12" font-weight="700" fill="#5B7285" text-anchor="middle">LV MSB</text>
+        <path d="M274 140 h90 M274 156 h90 M274 172 h90" stroke="#C6D2DC" stroke-width="3"/>
+        <path d="M398 160 H436" stroke="#1968AD" stroke-width="2.5" marker-end="url(#arS)"/>
+        <text x="417" y="152" font-size="11.5" font-weight="800" fill="#1968AD" text-anchor="middle">AC</text>
+
+        <rect x="444" y="110" width="140" height="100" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="514" y="96" font-size="12.5" font-weight="800" fill="#12293D" text-anchor="middle">UPS</text>
+        <path d="M474 140 h80 M474 156 h80 M474 172 h80" stroke="#C6D2DC" stroke-width="3"/>
+        <path d="M588 160 H646" stroke="#1968AD" stroke-width="2.5" marker-end="url(#arS)"/>
+        <text x="617" y="152" font-size="11.5" font-weight="800" fill="#1968AD" text-anchor="middle">AC</text>
+
+        <rect x="672" y="88" width="270" height="140" fill="#fff" stroke="#1968AD" stroke-width="2.5"/>
+        <text x="807" y="112" font-size="15" font-weight="900" fill="#1968AD" text-anchor="middle">800 VDC Sidecar</text>
+        <text x="700" y="146" font-size="13" font-weight="700" fill="#12293D">◈ Rectifiers 整流</text>
+        <text x="700" y="176" font-size="13" font-weight="700" fill="#12293D">◈ DC Distribution 直流配電</text>
+        <text x="700" y="206" font-size="13" font-weight="700" fill="#12293D">◈ 液冷熱交換</text>
+
+        <path d="M946 176 H1036" stroke="#3C9D6E" stroke-width="3" marker-end="url(#arS2)"/>
+        <rect x="944" y="126" width="96" height="24" fill="#2C7A54"/>
+        <text x="992" y="143" font-size="11.5" font-weight="800" fill="#fff" text-anchor="middle">800 VDC Bus</text>
+
+        <rect x="1044" y="120" width="96" height="94" fill="#fff" stroke="#1968AD" stroke-width="2"/>
+        <text x="1092" y="108" font-size="11.5" font-weight="800" fill="#12293D" text-anchor="middle">Compute Rack</text>
+        <g fill="#C6D2DC"><rect x="1056" y="132" width="72" height="16"/><rect x="1056" y="154" width="72" height="16"/><rect x="1056" y="176" width="72" height="16"/></g>
+
+        <rect x="20" y="270" width="1120" height="26" fill="#FCF2DE"/>
+        <text x="36" y="288" font-size="12.5" font-weight="800" fill="#C57F14">改造範圍僅限 White Space：土建、前端配電與停機衝擊都被限制在最小範圍。</text>
+      </svg>
+    </div>
+    <div class="four-col">
+      <div class="card"><h3>① 保留既有前端 AC 設施</h3><p>中壓降壓變壓器、LV MSB 與 UPS 維持不變，<b>大幅降低土建、配電與停機影響</b>。</p></div>
+      <div class="card teal"><h3>② 於機櫃側邊導入 800 VDC</h3><p>將 AC 轉 DC 移至機櫃側邊，<b>縮短直流配送距離，降低線損與散熱壓力</b>，提升功率密度。</p></div>
+      <div class="card amber"><h3>③ 是必要的過渡方案</h3><p>以最小改造成本，先建立 800 VDC 基礎，<b>為後續全面直流化鋪路</b>。</p></div>
+      <div class="metric amber" style="display:flex;flex-direction:column;justify-content:center"><div class="k">95% → 96.5%</div><div class="t">整體效率（原廠宣稱值，量測邊界未載明）</div></div>
+    </div>
+    <div class="big-callout">
+      <div class="label">核心訊息</div>
+      <div class="answer">800 VDC Sidecar 兼顧改造可行性與功率密度提升，是現階段最務實的升級解方。</div>
+    </div>
+  </div>
+  <div class="slide-foot"><div>來源：設備商簡報「過渡式 800Vdc Sidecar」（原件重繪）</div><div class="pageno">4.3</div></div>
+</section>
+
+<!-- 4.4 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 4 · 終局架構</div>
+      <h1>中壓一次轉換到 800 VDC，把整段低壓交流環節拿掉</h1>
+      <p class="sub">從 13.8–35 kV 中壓電網直接經整流器或固態變壓器轉為 800 VDC，配電架構最精簡。這是 AI Factory 與下一代資料中心的長期終局架構。</p>
+    </div>
+    <div class="flags"><span class="flag teal">目標效率 98.5%</span><span class="flag grey">適用新建案場</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="fig">
+      <div class="figtitle">長期方向：由中壓直供 800 VDC</div>
+      <svg viewBox="0 0 1160 250" role="img" aria-label="中壓直供 800VDC">
+        <defs><marker id="arM" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1968AD"/></marker>
+               <marker id="arM2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3C9D6E"/></marker></defs>
+        <rect x="20" y="20" width="180" height="34" fill="#1968AD"/>
+        <text x="110" y="43" font-size="13.5" font-weight="800" fill="#fff" text-anchor="middle">中壓輸入 MV</text>
+        <rect x="228" y="20" width="220" height="34" fill="#1968AD"/>
+        <text x="338" y="43" font-size="13.5" font-weight="800" fill="#fff" text-anchor="middle">E-GIS / DC SWGR</text>
+        <rect x="476" y="20" width="330" height="34" fill="#0C3A63"/>
+        <text x="641" y="43" font-size="13.5" font-weight="800" fill="#fff" text-anchor="middle">MV Rectifier / SST</text>
+        <rect x="834" y="20" width="150" height="34" fill="#2C7A54"/>
+        <text x="909" y="43" font-size="13.5" font-weight="800" fill="#fff" text-anchor="middle">800 VDC Bus</text>
+        <rect x="1012" y="20" width="128" height="34" fill="#1968AD"/>
+        <text x="1076" y="43" font-size="12.5" font-weight="800" fill="#fff" text-anchor="middle">Compute Rack</text>
+
+        <g>
+          <path d="M110 168 V110 M88 118 h44 M88 132 h44 M96 110 l14 -16 l14 16" stroke="#12293D" stroke-width="2.5" fill="none"/>
+          <text x="110" y="192" font-size="12" font-weight="700" fill="#12293D" text-anchor="middle">中壓電網供電</text>
+          <text x="110" y="210" font-size="11.5" fill="#5B7285" text-anchor="middle">13.8 – 35 kV AC</text>
+        </g>
+        <path d="M158 140 H220" stroke="#1968AD" stroke-width="3" marker-end="url(#arM)"/>
+
+        <rect x="252" y="96" width="76" height="90" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <rect x="342" y="96" width="76" height="90" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <g fill="#C6D2DC"><rect x="264" y="112" width="52" height="12"/><rect x="264" y="132" width="52" height="12"/><rect x="354" y="112" width="52" height="12"/><rect x="354" y="132" width="52" height="12"/></g>
+        <text x="338" y="204" font-size="11.5" fill="#5B7285" text-anchor="middle">中壓氣體絕緣開關設備／直流配電開關櫃</text>
+        <path d="M428 140 H468" stroke="#1968AD" stroke-width="3" marker-end="url(#arM)"/>
+
+        <rect x="476" y="72" width="330" height="120" fill="#E8F1F9" stroke="#1968AD" stroke-width="2.5"/>
+        <rect x="496" y="90" width="120" height="60" fill="#fff" stroke="#1968AD"/>
+        <text x="556" y="116" font-size="12" font-weight="800" fill="#1968AD" text-anchor="middle">MV Rectifier</text>
+        <text x="556" y="136" font-size="11" fill="#5B7285" text-anchor="middle">中壓整流器</text>
+        <text x="641" y="122" font-size="13" font-weight="800" fill="#5B7285" text-anchor="middle">或</text>
+        <rect x="666" y="90" width="120" height="60" fill="#fff" stroke="#1968AD"/>
+        <text x="726" y="112" font-size="12" font-weight="800" fill="#1968AD" text-anchor="middle">SST</text>
+        <text x="726" y="132" font-size="11" fill="#5B7285" text-anchor="middle">固態變壓器</text>
+        <text x="641" y="178" font-size="12.5" font-weight="800" fill="#12293D" text-anchor="middle">一次轉換為 800 VDC</text>
+        <path d="M814 140 H864" stroke="#3C9D6E" stroke-width="3.5" marker-end="url(#arM2)"/>
+        <circle cx="880" cy="140" r="8" fill="none" stroke="#2C7A54" stroke-width="2.5"/>
+        <path d="M888 140 H930" stroke="#3C9D6E" stroke-width="3.5"/>
+        <circle cx="938" cy="140" r="8" fill="none" stroke="#2C7A54" stroke-width="2.5"/>
+        <text x="909" y="176" font-size="12" font-weight="800" fill="#2C7A54" text-anchor="middle">800 VDC 直流母線</text>
+        <path d="M946 140 H1004" stroke="#3C9D6E" stroke-width="3.5" marker-end="url(#arM2)"/>
+
+        <g>
+          <rect x="1012" y="96" width="38" height="90" fill="#fff" stroke="#1968AD" stroke-width="2"/>
+          <rect x="1057" y="96" width="38" height="90" fill="#fff" stroke="#1968AD" stroke-width="2"/>
+          <rect x="1102" y="96" width="38" height="90" fill="#fff" stroke="#1968AD" stroke-width="2"/>
+          <g fill="#C6D2DC"><rect x="1018" y="106" width="26" height="9"/><rect x="1018" y="122" width="26" height="9"/><rect x="1018" y="138" width="26" height="9"/><rect x="1063" y="106" width="26" height="9"/><rect x="1063" y="122" width="26" height="9"/><rect x="1063" y="138" width="26" height="9"/><rect x="1108" y="106" width="26" height="9"/><rect x="1108" y="122" width="26" height="9"/><rect x="1108" y="138" width="26" height="9"/></g>
+          <text x="1076" y="204" font-size="11.5" font-weight="700" fill="#12293D" text-anchor="middle">800 VDC 供電</text>
+        </g>
+      </svg>
+    </div>
+    <div class="four-col">
+      <div class="card"><h3>① 架構最精簡</h3><p>從中壓直接轉換為 800 VDC，<b>大幅簡化配電架構</b>。</p></div>
+      <div class="card teal"><h3>② 效率與空間利用</h3><p>移除多段低壓 AC 配電與轉換，<b>降低損耗並提升功率密度</b>。</p></div>
+      <div class="card amber"><h3>③ 長期終局架構</h3><p>面向未來高功率密度與高效運營，為 AI Factory 與下一代資料中心<b>打造可擴展的理想架構</b>。</p></div>
+      <div class="metric teal" style="display:flex;flex-direction:column;justify-content:center"><div class="k">98.5%</div><div class="t">目標效率（原廠宣稱值）</div></div>
+    </div>
+    <div class="two-col">
+      <div class="big-callout">
+        <div class="label">核心訊息</div>
+        <div class="answer">中壓直轉 800 VDC 是未來 AI Datacenter 電力架構的長期方向，可同時兼顧效率、功率密度與系統簡化。</div>
+      </div>
+      <div class="warn"><b>對投資方的實務意義：</b>MV Rectifier 與 SST 都是<b>長交期重電設備</b>，且台灣尚無大量商轉實績。若客戶要走這條路，<b>設備保留產能與併聯審查必須比土建更早啟動</b>——這正是 1.3 所講的變壓器交期問題，只是換了品項。<br><br><span class="chip coral">待確認</span> SST 在台灣的型式認證、併聯規範與台電審查前例。</div>
+    </div>
+  </div>
+  <div class="slide-foot"><div>來源：設備商簡報「長期方向：由中壓直供 800Vdc」（原件重繪）</div><div class="pageno">4.4</div></div>
+</section>
+
+<!-- 4.5 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 4 · 儲能改造</div>
+      <h1>既有機房改造：不動供電主鏈，從 10 kV 中壓側加掛綠電與儲能</h1>
+      <p class="sub">小型綠能 × 削峰填谷 × 儲能緩衝 × 備援整合。適用於既有 IDC、改造需求最小化的場域。</p>
+    </div>
+    <div class="flags"><span class="flag blue">既有機房適用</span><span class="flag grey">設備商方案</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="fig">
+      <div class="figtitle">傳統資料中心儲能改造架構</div>
+      <svg viewBox="0 0 1160 320" role="img" aria-label="儲能改造架構">
+        <defs><marker id="arE" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#5B7285"/></marker></defs>
+        <g>
+          <path d="M60 190 V130 M40 140 h40 M40 156 h40 M46 130 l14 -18 l14 18" stroke="#12293D" stroke-width="2.5" fill="none"/>
+          <text x="60" y="212" font-size="11.5" font-weight="700" fill="#12293D" text-anchor="middle">市電電網</text>
+        </g>
+        <path d="M92 178 H132" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+        <rect x="140" y="150" width="86" height="56" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="183" y="182" font-size="11.5" font-weight="700" fill="#12293D" text-anchor="middle">35/10 kV</text>
+        <text x="183" y="226" font-size="11" fill="#5B7285" text-anchor="middle">主變壓器</text>
+        <path d="M230 178 H268" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+        <rect x="276" y="140" width="96" height="76" fill="#E8F1F9" stroke="#1968AD" stroke-width="2"/>
+        <text x="324" y="172" font-size="12" font-weight="800" fill="#1968AD" text-anchor="middle">10 kV</text>
+        <text x="324" y="192" font-size="12" font-weight="800" fill="#1968AD" text-anchor="middle">配電系統</text>
+        <text x="324" y="236" font-size="11" font-weight="700" fill="#B4432C" text-anchor="middle">併網點在中壓側</text>
+
+        <path d="M376 160 L440 96" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+        <path d="M376 178 H440" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+        <path d="M376 196 L440 250" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+        <path d="M376 206 L440 300" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+
+        <rect x="448" y="66" width="150" height="52" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="523" y="88" font-size="12" font-weight="700" fill="#12293D" text-anchor="middle">備援電源</text>
+        <text x="523" y="106" font-size="11" fill="#5B7285" text-anchor="middle">柴油發電機／燃料電池</text>
+
+        <rect x="448" y="152" width="150" height="52" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="523" y="174" font-size="12" font-weight="700" fill="#12293D" text-anchor="middle">10kV / 400V</text>
+        <text x="523" y="192" font-size="11" fill="#5B7285" text-anchor="middle">降壓變壓器</text>
+
+        <rect x="448" y="228" width="150" height="46" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="2"/>
+        <text x="523" y="256" font-size="12" font-weight="700" fill="#12818C" text-anchor="middle">10 kV 中壓站</text>
+
+        <rect x="448" y="284" width="150" height="30" fill="#FCF2DE" stroke="#E09A2B" stroke-width="2"/>
+        <text x="523" y="304" font-size="12" font-weight="700" fill="#C57F14" text-anchor="middle">變壓器 → 光伏</text>
+
+        <path d="M602 178 H650" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+        <rect x="658" y="152" width="150" height="52" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="733" y="174" font-size="12" font-weight="700" fill="#12293D" text-anchor="middle">低壓配電系統</text>
+        <text x="733" y="192" font-size="11" fill="#5B7285" text-anchor="middle">400 V</text>
+        <path d="M602 92 L656 158" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+
+        <path d="M602 251 H650" stroke="#1BB1BF" stroke-width="2.5" marker-end="url(#arE)"/>
+        <rect x="658" y="226" width="150" height="52" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="2.5"/>
+        <text x="733" y="248" font-size="12.5" font-weight="800" fill="#12818C" text-anchor="middle">儲能系統</text>
+        <text x="733" y="266" font-size="11" fill="#12818C" text-anchor="middle">BESS</text>
+
+        <path d="M812 178 H860" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+        <rect x="868" y="152" width="96" height="52" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="916" y="182" font-size="12.5" font-weight="800" fill="#12293D" text-anchor="middle">UPS</text>
+        <text x="916" y="224" font-size="11" fill="#5B7285" text-anchor="middle">既有 UPS 保留</text>
+
+        <path d="M968 168 L1020 128" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+        <path d="M968 190 L1020 216" stroke="#5B7285" stroke-width="2" marker-end="url(#arE)"/>
+        <rect x="1028" y="98" width="118" height="52" fill="#fff" stroke="#9FB1C0" stroke-width="2"/>
+        <text x="1087" y="120" font-size="11.5" font-weight="700" fill="#12293D" text-anchor="middle">鋰電池 ＋</text>
+        <text x="1087" y="138" font-size="11.5" font-weight="700" fill="#12293D" text-anchor="middle">鉛酸電池</text>
+        <rect x="1028" y="192" width="118" height="52" fill="#fff" stroke="#1968AD" stroke-width="2"/>
+        <text x="1087" y="222" font-size="12.5" font-weight="800" fill="#12293D" text-anchor="middle">IT 機櫃</text>
+      </svg>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:22%">核心架構邏輯</th><th>內容</th></tr></thead>
+        <tbody>
+          <tr><td><b>適用場景</b></td><td>既有 IDC 設施／<b>改造需求最小化</b>的場域</td></tr>
+          <tr><td><b>供電鏈</b></td><td>市電電網 → 主變壓器 → 低壓 → UPS → IT 機櫃（<b>主鏈不動</b>）</td></tr>
+          <tr><td><b>備援架構</b></td><td>保留傳統 UPS ＋ 鉛酸電池；另配柴油發電機或燃料電池</td></tr>
+          <tr class="hl-row"><td><b>儲能整合</b></td><td>於 <b>10 kV 中壓側併網</b>，結合光伏與小型風電，形成零碳園區，並可參與<b>區域虛擬電廠</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="four-col">
+      <div class="card"><h3>削峰填谷</h3><p>用電尖峰時段由儲能放電、離峰充電，<b>壓低契約容量與電費</b>。</p></div>
+      <div class="card teal"><h3>儲能緩衝</h3><p>AI 訓練負載啟停造成的功率波動，由 BESS 吸收，<b>降低對電網的衝擊</b>。</p></div>
+      <div class="card amber"><h3>備援整合</h3><p>與既有 UPS、柴油機／燃料電池整合運轉，<b>不必推翻既有備援設計</b>。</p></div>
+      <div class="card coral"><h3>小型綠能</h3><p>光伏＋小型風電於中壓側併入，<b>取得綠電比例與零碳園區敘事</b>。</p></div>
+    </div>
+    <div class="warn"><b>對投資方的意義：</b>這條路徑的工程內容——中壓併網、10kV 側 BESS、光伏併聯、與既有 UPS 的協調控制——<b>幾乎完全落在電力工程的能力圈內，且不需要碰 IT 側</b>。相較於 800 VDC 改造需要液冷與機櫃整合能力，這是門檻最低、可立即承接的一段。</div>
+  </div>
+  <div class="slide-foot"><div>來源：設備商簡報「Traditional Data Center – Energy Storage Solution」（原件重繪）</div><div class="pageno">4.5</div></div>
+</section>
+
+<!-- 4.6 -->
+<section class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="eyebrow">Part 4 · 交付速度</div>
+      <h1>需求成長越快，交付速度就越有價值</h1>
+      <p class="sub">模組化把工廠端與現場端從「先後」改為「平行」，建置週期從 24 個月壓到 12 個月，最快可到 9 個月。</p>
+    </div>
+    <div class="flags"><span class="flag blue">模組化部署</span><span class="flag amber">Time to Revenue</span></div>
+  </div>
+  <div class="slide-body">
+    <div class="split-60">
+      <div class="fig">
+        <div class="figtitle">建設週期比較（從規劃到上線）</div>
+        <svg viewBox="0 0 720 260" role="img" aria-label="建設週期比較">
+          <g stroke="#EDF1F5" stroke-width="1">
+            <line x1="180" y1="20" x2="180" y2="150"/><line x1="288" y1="20" x2="288" y2="150"/>
+            <line x1="396" y1="20" x2="396" y2="150"/><line x1="504" y1="20" x2="504" y2="150"/><line x1="612" y1="20" x2="612" y2="150"/>
+          </g>
+          <g font-size="11" fill="#9FB1C0" text-anchor="middle">
+            <text x="180" y="170">5</text><text x="288" y="170">10</text><text x="396" y="170">15</text><text x="504" y="170">20</text><text x="612" y="170">25</text>
+          </g>
+          <text x="396" y="192" font-size="11.5" fill="#5B7285" text-anchor="middle">月數</text>
+          <text x="166" y="52" font-size="13" font-weight="700" fill="#12293D" text-anchor="end">模組化資料中心</text>
+          <text x="166" y="108" font-size="13" font-weight="700" fill="#12293D" text-anchor="end">傳統資料中心</text>
+          <rect x="72" y="34" width="259" height="28" fill="#1968AD"/>
+          <text x="300" y="54" font-size="18" font-weight="900" fill="#fff" text-anchor="end">12</text>
+          <text x="342" y="54" font-size="12.5" font-weight="700" fill="#1968AD">個月</text>
+          <rect x="72" y="90" width="518" height="28" fill="#C6D2DC"/>
+          <text x="560" y="110" font-size="18" font-weight="900" fill="#5B7285" text-anchor="end">24</text>
+          <text x="600" y="110" font-size="12.5" font-weight="700" fill="#5B7285">個月</text>
+          <rect x="72" y="212" width="576" height="34" fill="#E8F1F9"/>
+          <text x="88" y="234" font-size="13" font-weight="800" fill="#1968AD">工廠端與現場端改為平行推進 → 縮短 50%，最快可壓縮至 9 個月內完工</text>
+        </svg>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="metric"><div class="k">108 GW</div><div class="t"><b>2030 年全球資料中心用電量</b>（年均功率）<br><span class="note-src">＝ IEA 推估 945 TWh ÷ 8,760 小時</span></div></div>
+        <div class="metric teal"><div class="k">15%</div><div class="t"><b>2024–2030 CAGR</b><br><span class="note-src">成長速度為其他所有部門用電成長的四倍以上</span></div></div>
+        <div class="note-src"><b>來源更正：</b>原簡報標註為《IEA, Electricity 2024 – Analysis and forecast to 2030》。IEA《Electricity 2024》預測期至 2026 年；<b>2030 年的 945 TWh 與 15% CAGR 出自 IEA《Energy and AI》（2025）</b>。引用時應改列後者。</div>
+      </div>
+    </div>
+    <div class="three-col">
+      <div class="card"><h3>⏱ 快速部署</h3><p>模組在工廠預製測試，<b>現場快速安裝並聯調</b>。現場只做適配、測試、開機、上線。</p></div>
+      <div class="card teal"><h3>💰 提早營收</h3><p>縮短建置週期，提早投入營運，<b>更快創造營收與投資回報</b>。</p></div>
+      <div class="card amber"><h3>📦 可擴展複製</h3><p>模組化、標準化設計，<b>支援彈性擴充與快速複製</b>。</p></div>
+    </div>
+    <div class="two-col">
+      <div class="big-callout">
+        <div class="label">核心訊息</div>
+        <div class="answer">高效配電 ＋ EMS ＋ 模組化機房，形成可快速交付的整體方案。</div>
+        <div class="more">需求成長越快，交付速度就越有價值——模組化部署讓高效電力解決方案更快落地。</div>
+      </div>
+      <div class="warn"><b>但 1.3 的提醒在這裡同樣成立：</b>模組化壓縮的是<b>土建與機電安裝</b>的工期，壓不掉大型電力變壓器約 2.5 年的交期，也壓不掉台電併聯審查的時程。<br><br><b>12 個月的模組化案場，若電力側沒有提前 18 個月啟動，模組到了現場也只能等電。</b>這正是投資方在整條價值鏈上最不可替代的位置。</div>
+    </div>
+  </div>
+  <div class="slide-foot"><div>來源：設備商簡報「模組化資料中心：短建置週期，提早生營收」；IEA《Energy and AI》（2025）</div><div class="pageno">4.6</div></div>
+</section>
+
+</div>
+
 <!-- ================= 附錄一 : 貨櫃型算力伺服器 ================= -->
 <div class="view" id="view-a1">
 
@@ -2335,17 +2826,19 @@ svg text{font-family:inherit}
     p1: [].slice.call(document.querySelectorAll('#view-p1 .slide')),
     p2: [].slice.call(document.querySelectorAll('#view-p2 .slide')),
     p3: [].slice.call(document.querySelectorAll('#view-p3 .slide')),
+    p4: [].slice.call(document.querySelectorAll('#view-p4 .slide')),
     a1: [].slice.call(document.querySelectorAll('#view-a1 .slide')),
     a2: [].slice.call(document.querySelectorAll('#view-a2 .slide'))
   };
-  var order = ['p1','p2','p3','a1','a2'];
+  var order = ['p1','p2','p3','p4','a1','a2'];
   var state = { view:'home', idx:0 };
-  var last = { p1:0, p2:0, p3:0, a1:0, a2:0 };
+  var last = { p1:0, p2:0, p3:0, p4:0, a1:0, a2:0 };
   var views = {
     home: document.getElementById('view-home'),
     p1: document.getElementById('view-p1'),
     p2: document.getElementById('view-p2'),
     p3: document.getElementById('view-p3'),
+    p4: document.getElementById('view-p4'),
     a1: document.getElementById('view-a1'),
     a2: document.getElementById('view-a2')
   };
@@ -2375,7 +2868,7 @@ svg text{font-family:inherit}
   function goHash(hash){
     hash = (hash||'#home').replace('#','');
     if(hash==='home'||hash===''){ state.view='home'; render(); return; }
-    var m = hash.match(/^(p1|p2|p3|a1|a2)-(\d+)$/);
+    var m = hash.match(/^(p1|p2|p3|p4|a1|a2)-(\d+)$/);
     if(m){
       var v=m[1], i=parseInt(m[2],10)-1;
       if(parts[v][i]){ state.view=v; state.idx=i; render(); return; }
